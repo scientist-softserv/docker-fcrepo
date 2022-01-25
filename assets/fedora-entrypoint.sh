@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Changing ownership of /data as $(whoami)"
-chown jetty:jetty /data
+chown -R jetty:jetty /data
 echo "Downgrading privileges and resuming"
 
 for MEM_FILE in memory.max memory/memory.limit_in_bytes memory/memory.memsw.limit_in_bytes memory/memory.kmem.limit_in_bytes; do
