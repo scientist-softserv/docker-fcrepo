@@ -11,13 +11,13 @@ To run a generic Fedora server with an ephemeral datastore and the same default,
 as the “one-click” test configuration:
 
 ```bash
-docker run -ti -p 8080:8080 samvera/fcrepo4:VERSION
+docker run -ti -p 8080:8080 ghcr.io/samvera/fcrepo4:VERSION
 ```
 
 e.g.:
 
 ```bash
-docker run -ti -p 8080:8080 samvera/fcrepo4:5.1.0
+docker run -ti -p 8080:8080 ghcr.io/samvera/fcrepo4:4.7.5
 ```
 
 ### Overriding Default Configuration
@@ -29,7 +29,7 @@ rebuilding the container. Simply mount the new configuration like so:
 ```bash
 docker run -ti -p 8080:8080 \
   -v /path/to/my/configs:/jetty-overrides \
-  samvera/fcrepo4:5.1.0
+  ghcr.io/samvera/fcrepo4:4.7.5
 ```
 
 For more information regarding Jetty configuration, see the

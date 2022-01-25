@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_REPO=${DOCKER_REPO:-samvera/fcrepo4}
+DOCKER_REPO=${DOCKER_REPO:-ghcr.io/samvera/fcrepo4}
 
 function latest_release() {
   curl -s -H accept:application/vnd.github.v3+json https://api.github.com/repos/fcrepo4/fcrepo4/releases/latest | jq -r '.tag_name | split("-") | last'
@@ -9,4 +9,5 @@ function latest_release() {
 FCREPO_VERSION=${1:-$(latest_release)}
 echo -n 'Building release: '
 echo $FCREPO_VERSION
-docker build --build-arg FCREPO_VERSION=$FCREPO_VERSION -t $DOCKER_REPO:$FCREPO_VERSION .
+docker buildx create --use
+docker buildx build --push --platform linux/amd64,linux/arm64 --build-arg FCREPO_VERSION=$FCREPO_VERSION -t $DOCKER_REPO:$FCREPO_VERSION .
