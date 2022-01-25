@@ -6,6 +6,7 @@ ARG         FCREPO_VERSION
 RUN         bash ./repack.sh
 
 FROM        jetty:9-jre8
+LABEL       org.opencontainers.image.source https://github.com/samvera-labs/docker-fcrepo
 USER        root
 RUN         mkdir -p /data ${JETTY_BASE}/etc ${JETTY_BASE}/modules
 ADD         assets/fedora-entrypoint.sh /
