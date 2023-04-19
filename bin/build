@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DOCKER_REPO=${DOCKER_REPO:-ghcr.io/samvera/fcrepo4}
+DOCKER_REPO=${DOCKER_REPO:-ghcr.io/scientist-softserv/fcrepo}
 
 function latest_release() {
-  curl -s -H accept:application/vnd.github.v3+json https://api.github.com/repos/fcrepo4/fcrepo4/releases/latest | jq -r '.tag_name | split("-") | last'
+  curl -s -H accept:application/vnd.github.v3+json https://api.github.com/repos/scientist-softserv/fcrepo/releases/latest | jq -r '.tag_name | split("-") | last'
 }
 
 FCREPO_VERSION=${1:-$(latest_release)}
