@@ -11,7 +11,7 @@ curl --silent -I https://raw.githubusercontent.com/scientist-softserv/fcrepo/fcr
 
 if [[ $? == 0 ]]; then
   echo "Downloading Fedora v${FCREPO_VERSION} one-click web.xml"
-  curl -# -Lo WEB-INF/web.xml https://raw.githubusercontent.com/scientist-softserv/fcrepo/fcrepo-${FCREPO_VERSION}/fcrepo-webapp/src/main/jetty-console/WEB-INF/web.xml
+  curl -# -Lo WEB-INF/web.xml https://raw.githubusercontent.com/scientist-softserv/fcrepo/${FCREPO_VERSION}/fcrepo-webapp/src/main/webapp/WEB-INF/web.xml
   echo "Repacking Fedora v${FCREPO_VERSION} .war file"
   jar -cf /build/fedora.war .
 fi
